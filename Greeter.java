@@ -9,7 +9,6 @@ public class Greeter
 	{
 		Greeter greeter = new Greeter();
 		
-		Greeting helloWorldGreeting = new HelloWorldGreeting();
 		Greeting lambdaGreeting = () -> System.out.print("Hello World!");
 		
 		Greeting innerClassGreeting = new Greeting()
@@ -21,5 +20,8 @@ public class Greeter
 		};
 		
 		lambdaGreeting.perform();
+		
+		greeter.greet(lambdaGreeting);
+		greeter.greet(innerClassGreeting);
 	}
 }
