@@ -1,0 +1,7 @@
+public class HelloWorldGreeting implements Greeting
+{
+	@public void perform()
+	{
+		System.out.print("Hello World");
+	}
+}
