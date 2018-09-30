@@ -13,19 +13,19 @@ public class Person
 	}
 	
 	public String getFirstName() { return firstName; }
-	public String setFirstName(String firstName)
+	public void setFirstName(String firstName)
 	{
 		this.firstName = firstName;
 	}
 	
 	public String getLastName() { return lastName; }
-	public String setLastName()
+	public void setLastName()
 	{
 		this.lastName = lastName;
 	}
 	
 	public int getAge() { return age; }
-	public int setAge(int age)
+	public void setAge(int age)
 	{
 		this.age = age;
 	}
@@ -33,6 +33,6 @@ public class Person
 	@Override
 	public String toString()
 	{
-		return "Person [firstName= " + firstName + ", lastName= " + lastName + ", age=" + age "]";
+		return "Person [firstName= " + firstName + ", lastName= " + lastName + ", age=" + age + "]";
 	}
 }

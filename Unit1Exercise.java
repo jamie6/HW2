@@ -1,6 +1,9 @@
 // unit 1 Exercise
 import java.util.Arrays;
 import java.util.List;
+import java.util.Collections;
+import java.util.Comparator;
+
 
 public class Unit1Exercise
 {
@@ -15,7 +18,7 @@ public class Unit1Exercise
 			);
 			
 		// Step 1: Sort list by last name
-		Collections.sort(people, new Comparator<T>()
+		Collections.sort(people, new Comparator<Person>()
 		{
 			@Override
 			public int compare(Person p1, Person p2)
@@ -24,11 +27,38 @@ public class Unit1Exercise
 			}
 		});
 		// Step 2: Create a method that prints all elements in the list
+		System.out.println("Printing all people");
 		printAll(people);
 		
 		// Step 3: Create a method that prints all people that have last naem beginning with C
-		printLastNameBeginningWithC(people);
+		System.out.println("Printing all people with last names beginning with C");
+		printConditionally(people, new Condition()
+		{
+			@Override
+			public boolean test(Person p)
+			{
+				return p.getLastName().startsWith("C");
+			}
+		});
+		
+		System.out.println("Printing all people with first names beginning with C");
+		printConditionally(people, new Condition()
+		{
+			@Override
+			public boolean test(Person p)
+			{
+				return p.getFirstName().startsWith("C");
+			}
+		});
 
+	}
+	private static void printConditionally(List<Person> people, Condition condition)
+	{
+		for ( Person p: people )
+		{
+			if ( condition.test(p) )
+				System.out.println(p);
+		}
 	}
 	
 	private static void printAll(List<Person> people)
@@ -46,4 +76,10 @@ public class Unit1Exercise
 				System.out.println(p);
 		}
 	}
+}
+
+
+interface Condition
+{
+	boolean test(Person p);
 }
