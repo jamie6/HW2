@@ -11,12 +11,15 @@ public class Greeter
 		HelloWorldGreeting helloWorldGreeting = new HelloWorldGreeting();
 		greeter.greet(helloWorldGreeting);
 		
-		MyLambda myLambdaFunction = () -> System.out.print("Hello World!");
-		MyAdd addFunction = (int a, int b) -> a + b;
+		//MyLambda myLambdaFunction = () -> System.out.print("Hello World!");
+		//MyAdd addFunction = (int a, int b) -> a + b;
+		Greeting lambdaGreeting = () -> System.out.print("Hello World!");
+		
+		lambdaGreeting.perform();
 	}
 }
 
-interface MyLambda
+/*interface MyLambda
 {
 	void foo();
 }
@@ -24,4 +27,4 @@ interface MyLambda
 interface MyAdd
 {
 	int add(int x, int y);
-}
+}*/
