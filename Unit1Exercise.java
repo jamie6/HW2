@@ -15,9 +15,35 @@ public class Unit1Exercise
 			);
 			
 		// Step 1: Sort list by last name
-		
+		Collections.sort(people, new Comparator<T>()
+		{
+			@Override
+			public int compare(Person p1, Person p2)
+			{
+				return p1.getLastName().compareTo(p2.getLastName());
+			}
+		});
 		// Step 2: Create a method that prints all elements in the list
+		printAll(people);
 		
 		// Step 3: Create a method that prints all people that have last naem beginning with C
+		printLastNameBeginningWithC(people);
+
+	}
+	
+	private static void printAll(List<Person> people)
+	{
+		for ( Person p: people )
+		{
+			System.out.println(p);
+		}
+	}
+	private static void printLastNameBeginningWithC(List<Person> people)
+	{
+		for ( Person p: people )
+		{
+			if ( p.getLastName().startsWith("C"))
+				System.out.println(p);
+		}
 	}
 }
