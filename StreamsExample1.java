@@ -22,5 +22,17 @@ class StreamsExample1
 		people.stream()
 		.filter(p-> p.getLastName().startsWith("C"))
 		.forEach(p->System.out.println(p.getFirstName()));
+		
+		//Stream<Person> stream = people.stream();
+		
+		long count = people.stream()
+		.filter(p-> p.getLastName().startsWith("D"))
+		.count();
+		
+		count = people.parallelStream()
+		.filter(p-> p.getLastName().startsWith("D"))
+		.count();
+		
+		System.out.println(count);
 	}
 }
