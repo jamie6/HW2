@@ -16,7 +16,7 @@ public class ThisReferenceExample
 			public void process(int i )
 			{
 				System.out.println("Value of i is " + i);
-				System.out.println(this0;
+				System.out.println(this);
 			}
 			
 			public String toString()
