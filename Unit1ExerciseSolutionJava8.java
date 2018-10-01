@@ -3,6 +3,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.function.Predicate;
 
 class Unit1ExerciseSolutionJava8
 {
@@ -29,18 +30,12 @@ class Unit1ExerciseSolutionJava8
 		System.out.println("Printing all people with first names beginning with C");
 		printConditionally(people, p ->  p.getFirstName().startsWith("C"));
 	}
-	private static void printConditionally(List<Person> people, Condition condition)
+	private static void printConditionally(List<Person> people, Predicate<Person> predicate)
 	{
 		for ( Person p: people )
 		{
-			if ( condition.test(p) )
+			if ( predicate.test(p) )
 				System.out.println(p);
 		}
 	}
-}
-
-
-interface Condition
-{
-	boolean test(Person p);
 }
