@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.function.Predicate;
+import java.util.function.Consumer;
 
 class Unit1ExerciseSolutionJava8
 {
@@ -21,21 +22,21 @@ class Unit1ExerciseSolutionJava8
 		Collections.sort(people, (p1, p2)->p1.getLastName().compareTo(p2.getLastName()));
 		// Step 2: Create a method that prints all elements in the list
 		System.out.println("Printing all people");
-		printConditionally(people, p->true);
+		performConditionally(people, p->true, p->System.out.println(p));
 		
 		// Step 3: Create a method that prints all people that have last naem beginning with C
 		System.out.println("Printing all people with last names beginning with C");
-		printConditionally(people, p -> p.getLastName().startsWith("C"));
+		performConditionally(people, p -> p.getLastName().startsWith("C"), p->System.out.println(p));
 		
 		System.out.println("Printing all people with first names beginning with C");
-		printConditionally(people, p ->  p.getFirstName().startsWith("C"));
+		performConditionally(people, p ->  p.getFirstName().startsWith("C"), p->System.out.println(p.getFirstName()));
 	}
-	private static void printConditionally(List<Person> people, Predicate<Person> predicate)
+	private static void performConditionally(List<Person> people, Predicate<Person> predicate, Consumer<Person> consumer)
 	{
 		for ( Person p: people )
 		{
 			if ( predicate.test(p) )
-				System.out.println(p);
+				consumer.accept(p);
 		}
 	}
 }
